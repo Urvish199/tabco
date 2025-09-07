@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail Page</title>
+
+  <script src="https://unpkg.com/html5-qrcode"></script>
+
+  <!-- Swiper.js CSS (from CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- LightGallery CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+
+
+
+<body>
+
+  <!-- Loader Spinner -->
+  <div id="loader" class="loader"></div>
+
+  <!-- Page Wrapper for Flexbox Layout -->
+  <div class="page-wrapper">
+
+    <!-- Header (Logo + Site Name) -->
+    <header id="header" class="site-header">
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="hidden">
+      <div class="container" id="product-list">
+        <div class="product-card">
+          <div class="product-layout">
+
+            <!-- Product Image Slider (Swiper.js) -->
+            <div class="product-slider">
+              <div class="swiper">
+                <div class="swiper-wrapper" id="swiper-wrapper">
+                  <!-- Product images will be injected here via JS -->
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+
+            <!-- Product Details Section -->
+            <div class="product-details">
+              <h1 id="product-title"></h1>
+              <p id="product-description"></p>
+              <p class="price" id="product-price"></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Order Summary Bar -->
+    <div id="order-summary">
+      <div class="summary-left">
+        <div><strong>Total Qty:</strong> <span id="total-qty">0</span></div>
+        <div><strong>Total Amt:</strong> ₹<span id="total-amt">0.00</span></div>
+      </div>
+      <div class="summary-right">
+        <button id="add-catelog-btn" class="add-item-catelog-btn">Catelog</button>
+        <button id="add-item-btn" class="add-item-btn">Add</button>
+      
+        <button id="show-entered-items-btn" class="show-item-btn">Show</button>
+        <button id="place-order-btn" class="place-order-btn">Submit</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="site-footer"></footer>
+
+  </div> <!-- End of page-wrapper -->
+  <!-- QR Dialog -->
+  <!-- QR Scanner Modal -->
+  <div id="qr-dialog" style="display: none;">
+    <div class="qr-modal">
+      <div id="qr-reader"></div>
+      <button id="qr-close-btn">Close</button>
+    </div>
+  </div>
+
+  <!-- App Dialog -->
+  <div id="custom-dialog" class="custom-dialog-overlay" style="display:none;">
+    <div class="custom-dialog">
+      <h2 id="dialog-title">Notice</h2>
+      <p id="dialog-message"></p>
+      <button onclick="closeCustomDialog()">OK</button>
+    </div>
+  </div>
+
+ 
+  <!-- Dialog for Entered Items -->
+  <div id="entered-items-dialog" class="custom-dialog-overlay" style="display: none;">
+    <div class="custom-dialog" style="max-width: 480px; width: 95%;">
+      <h2>Entered Items</h2>
+
+      <!-- Header Row -->
+      <div style="display: flex; align-items: center; font-weight: 600; margin-bottom: 8px; border-bottom: 1px solid #ccc; padding-bottom: 6px;">
+        
+        <div style="flex: 1; text-align: left;">Item Name</div>
+        <div style="flex: 0 0 60px; text-align: right;">Quantity</div>
+      </div>
+
+      <!-- Dynamic List Container -->
+      <div id="entered-items-list" style="max-height: 300px; overflow-y: auto; width: 100%; margin-bottom: 16px;"></div>
+
+      <button onclick="closeEnteredItemsDialog()" class="place-order-btn">Close</button>
+    </div>
+  </div>
+
+
+
+
+  <!-- Swiper.js JS (from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- LightGallery JS -->
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/zoom/lg-zoom.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/fullscreen/lg-fullscreen.umd.min.js"></script>
+
+
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>
