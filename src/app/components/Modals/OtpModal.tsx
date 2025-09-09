@@ -79,7 +79,9 @@ export default function OtpModal({
 
   return (
     <Dialog open={otpOpen} onOpenChange={handleOtpToggle}>
-      <DialogContent className="bg-white rounded-xl shadow-lg w-full max-w-[95vw] sm:max-w-md">
+      <DialogContent  onPointerDownOutside={(e) => e.preventDefault()}
+        // (optional) prevent closing with ESC
+        onEscapeKeyDown={(e) => e.preventDefault()} className="bg-white rounded-xl shadow-lg w-full max-w-[95vw] sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold text-center mb-4">
             {step === "mobile" ? "Confirm Order" : "Enter OTP"}

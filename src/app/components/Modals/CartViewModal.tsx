@@ -38,7 +38,9 @@ export default function CartViewModal({
   return (
     <>
       <Dialog open={cartOpen} onOpenChange={handleCartToggle} >
-        <DialogContent className="bg-white rounded-xl shadow-lg w-full max-w-[95vw]">
+        <DialogContent onPointerDownOutside={(e) => e.preventDefault()}
+        // (optional) prevent closing with ESC
+        onEscapeKeyDown={(e) => e.preventDefault()} className="bg-white rounded-xl shadow-lg w-full max-w-[95vw]">
           <DialogHeader>
             <DialogTitle className="text-xl font-semibold text-center mb-4">
                 Entered Items

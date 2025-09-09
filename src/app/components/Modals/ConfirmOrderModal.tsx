@@ -101,7 +101,10 @@ const dispatch = useAppDispatch();
 
   return (
     <Dialog open={confirmOrderOpen} onOpenChange={handleConfirmOrderToggle}>
-      <DialogContent className="bg-white rounded-xl shadow-lg w-full max-w-[95vw] sm:max-w-md">
+      <DialogContent onPointerDownOutside={(e) => e.preventDefault()}
+        // (optional) prevent closing with ESC
+        onEscapeKeyDown={(e) => e.preventDefault()}
+        className="bg-white rounded-xl shadow-lg w-full max-w-[95vw] sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold text-center mb-4">
             Finalize Order
